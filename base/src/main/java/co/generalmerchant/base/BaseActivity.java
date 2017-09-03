@@ -1,6 +1,9 @@
 package co.generalmerchant.base;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 
@@ -41,5 +44,37 @@ public class BaseActivity extends AppCompatActivity {
         }
         mAlertDialog.show();
     }
+
+    public class SharedPreference {
+
+        public  String getValue(String key, String defaultStr, Context activity) {
+
+            return PreferenceManager.getDefaultSharedPreferences(activity).getString(key, defaultStr);
+
+        }
+
+        public  void setValue(String key, String value, Context activity) {
+
+            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(activity).edit();
+
+            editor.putString(key, value);
+
+            //editor.commit();
+            editor.apply();
+
+        }
+
+        public void clearSharedPreference(Context activity) {
+
+            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(activity).edit();
+
+            editor.clear();
+
+            //editor.commit();
+            editor.apply();
+        }
+
+    }
+
 
 }
