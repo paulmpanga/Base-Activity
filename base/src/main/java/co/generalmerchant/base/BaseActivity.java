@@ -45,37 +45,31 @@ public class BaseActivity extends AppCompatActivity {
         mAlertDialog.show();
     }
 
-    //this is temporary placement
-    public class SharedPreference {
+    public static String getValue(String key, String defaultStr, Context activity) {
 
-        public  String getValue(String key, String defaultStr, Context activity) {
-
-            return PreferenceManager.getDefaultSharedPreferences(activity).getString(key, defaultStr);
-
-        }
-
-        public  void setValue(String key, String value, Context activity) {
-
-            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(activity).edit();
-
-            editor.putString(key, value);
-
-            //editor.commit();
-            editor.apply();
-
-        }
-
-        public void clearSharedPreference(Context activity) {
-
-            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(activity).edit();
-
-            editor.clear();
-
-            //editor.commit();
-            editor.apply();
-        }
+        return PreferenceManager.getDefaultSharedPreferences(activity).getString(key, defaultStr);
 
     }
 
+    public static void setValue(String key, String value, Context activity) {
+
+        SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(activity).edit();
+
+        editor.putString(key, value);
+
+        //editor.commit();
+        editor.apply();
+
+    }
+
+    public static void clearSharedPreference(Context activity) {
+
+        SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(activity).edit();
+
+        editor.clear();
+
+        //editor.commit();
+        editor.apply();
+    }
 
 }
