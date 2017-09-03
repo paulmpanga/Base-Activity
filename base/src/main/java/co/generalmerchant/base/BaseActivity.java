@@ -45,6 +45,7 @@ public class BaseActivity extends AppCompatActivity {
         mAlertDialog.show();
     }
 
+    //this is temporary placement
     public class SharedPreference {
 
         public  String getValue(String key, String defaultStr, Context activity) {
