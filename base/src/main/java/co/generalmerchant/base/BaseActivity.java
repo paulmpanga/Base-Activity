@@ -12,6 +12,7 @@ public class BaseActivity extends AppCompatActivity {
 
     private ProgressDialog mProgressDialog;
     private AlertDialog.Builder mAlertDialog;
+    private SharedPreference sharedPreference = new SharedPreference();
 
     public void showProgressDialog(String message) {
         if (mProgressDialog == null) {
